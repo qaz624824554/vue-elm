@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { baseUrl, Timeout } from '../config/env'
+import { baseUrl } from '../config/env'
 
 axios.defaults.baseURL = baseUrl
-axios.defaults.timeout = Timeout
+// axios.defaults.timeout = Timeout
 
 // 请求拦截器
 axios.interceptors.request.use(request => {

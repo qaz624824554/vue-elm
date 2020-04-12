@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-top class="head-top">
+    <header-top class="head-top" :isLogin="true">
       <span slot="logo" class="head_logo">ele.me</span>
     </header-top>
     <van-tabs v-model="activeName" animated>
@@ -16,7 +16,7 @@
             v-for="item in hotCity"
             :key="item.id"
             :text="item.name"
-            :to="'/cities/' + item.id"
+            :to="'/city/' + item.id"
           />
         </van-grid>
       </van-tab>
@@ -85,7 +85,6 @@ export default {
     })
     groupCity.then(res => {
       this.groupCity = res
-      console.log(this.groupCity)
     })
   },
   created() {},

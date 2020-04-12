@@ -2,8 +2,10 @@
   <header id="head_top">
     <slot name="logo"></slot>
     <slot name="search"></slot>
-    <van-icon name="arrow-left" class="head_goback" style="display:none" />
-    <van-icon name="contact" class="head_login" />
+    <slot name="goback"></slot>
+    <van-icon name="contact" class="head_login" v-if="isLogin" />
+    <slot name="title"></slot>
+    <slot name="changeCity"></slot>
   </header>
 </template>
 
@@ -15,7 +17,9 @@ export default {
   },
   methods: {},
   created() {},
-  props: [],
+  props: {
+    isLogin: Boolean
+  },
   components: {
     [Icon.name]: Icon
   }
@@ -25,6 +29,10 @@ export default {
 <style lang="scss" scoped>
 @import '../../styles/mixin.scss';
 
+header{
+  height: 50px;
+}
+
 #head_top {
   background-color: $blue;
   position: fixed;
@@ -32,12 +40,6 @@ export default {
   left: 0;
   top: 0;
   @include wh(100%, 50px);
-}
-
-.head_goback {
-  left: 3px;
-  @include wh(15px, 25px);
-  line-height: 50px;
 }
 
 .head_login {
